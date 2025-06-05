@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RWD響應式基礎佈局設計</title>
+  <style>
+    body {
+      background-color: #f0f0f0;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      gap: 0px; 
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+    .column {
+      border: 4px solid white; 
+      background-color: cyan;
+      text-align: center;
+      width: 375px;
+    }
+    .column.video-column {
+      width: 500px;
+      background-color: #ffd700;
+    }
+    .column.video-column video {
+      height: 250px;
+    }
+    .column.video-column div {
+      font-size: 1.5vw;
+      color: #333;
+    }
+    .column div {
+      padding: 10px;
+      font-size: 1.2vw;
+      font-weight: bold;
+      text-align: left;
+    }
+    .column img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-top: 4px solid white; 
+    }
+    .header {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .title {
+      font-size: 2.5vw;
+      font-weight: bold;
+      margin-bottom: 10px;
+      word-break: break-all;
+    }
+    .menu-list {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      font-size: 1.3vw;
+      margin-bottom: 10px;
+      list-style: none;
+      padding: 0;
+    }
+    .menu-btn {
+      display: none;
+      font-size: 2vw;
+      background: #22223b;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+    .menu-list li {
+      cursor: pointer;
+    }
+    .menu-list li:hover {
+      color: #22223b;
+    }
+
+    /* 手機版樣式 */
+    @media screen and (max-width: 768px) {
+      .menu-btn {
+        display: inline-block;
+      }
+      .menu-list {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        z-index: 1000;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+      .menu-list.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .column, .column.video-column {
+        width: 90%;
+        margin-bottom: 20px;
+      }
+      /* 手機版最小字體大小 */
+      .title {
+        font-size: 20px;
+      }
+      .menu-list {
+        font-size: 18px;
+      }
+      .column div {
+        font-size: 16px;
+      }
+      .column.video-column div {
+        font-size: 20px;
+      }
+      .menu-btn {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="title">這是一個回應式網頁設計文字過長的範例</div>
+    <ul class="menu-list">
+      <li>選項一</li>
+      <li>選項二</li>
+      <li>選項三</li>
+      <li>選項四</li>
+      <li>選項五</li>
+      <li>選項六</li>
+    </ul>
+    <div class="menu-btn">&#9776;</div>
+  </div>
+  <div class="container">
+    <div class="column">
+      <div>鍾濰遠的紙飛機</div>
+      <img src="紙飛機5.jpg" alt="鍾濰遠的紙飛機">
+    </div>
+    <div class="column">
+      <div>羅一程</div>
+      <img src="紙飛機1.JPG" alt="玫瑰花">
+    </div>
+    <div class="column">
+      <div>王唯毓</div>
+      <img src="紙飛機2.jpg" alt="繡球花">
+    </div>
+    <div class="column">
+      <div>陳正祐</div>
+      <img src="紙飛機3.jpg" alt="百合花">
+    </div>
+    <div class="column">
+      <div>吳培凱</div>
+      <img src="紙飛機.jpg" alt="百合花">
+    </div>
+    <div class="column video-column">
+      <div>我的影片</div>
+      <video width="100%" controls>
+        <source src="紙飛機.mp4" type="video/mp4">
+        您的瀏覽器不支援影片播放。
+      </video>
+    </div>
+  </div>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    const menuList = document.querySelector('.menu-list');
+    let isMenuOpen = false;
+
+    menuBtn.addEventListener('click', function() {
+      isMenuOpen = !isMenuOpen;
+      menuList.classList.toggle('active');
+      
+      // 更新漢堡選單圖示
+      menuBtn.innerHTML = isMenuOpen ? '✕' : '&#9776;';
+    });
+
+    // 點擊選單項目後關閉選單
+    document.querySelectorAll('.menu-list li').forEach(item => {
+      item.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          menuList.classList.remove('active');
+          menuBtn.innerHTML = '&#9776;';
+          isMenuOpen = false;
+        }
+      });
+    });
+
+    // 點擊頁面其他地方關閉選單
+    document.addEventListener('click', (e) => {
+      if (isMenuOpen && !menuList.contains(e.target) && !menuBtn.contains(e.target)) {
+        menuList.classList.remove('active');
+        menuBtn.innerHTML = '&#9776;';
+        isMenuOpen = false;
+      }
+    });
+  </script>
+</body>
+</html>

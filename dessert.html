@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>請選擇甜點</title>
+    <script>
+        function showSelectedDessert(event) {
+            event.preventDefault(); 
+            const desserts = document.getElementsByName("dessert");
+            let selected = "";
+            for (let i = 0; i < desserts.length; i++) {
+                if (desserts[i].checked) {
+                    selected = desserts[i].value;
+                    break;
+                }
+            }
+            if (selected) {
+                alert("你選擇的甜點是：" + selected);
+            } else {
+                alert("請選擇一個甜點！");
+            }
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="showSelectedDessert(event)">
+        <label>喜歡的甜點：</label><br>
+        <input type="radio" name="dessert" value="馬卡龍"> 馬卡龍  
+        <input type="radio" name="dessert" value="提拉米蘇" checked> 提拉米蘇
+        <input type="radio" name="dessert" value="舒芙蕾"> 舒芙蕾
+        <input type="radio" name="dessert" value="檸檬塔"> 檸檬塔
+        <br><br>
+        <input type="submit" value="提交">
+        <input type="reset" value="重設">
+    </form>
+</body>
+</html>

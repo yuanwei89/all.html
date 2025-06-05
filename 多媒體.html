@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>自行車約騎意願調查表</title>
+    <script>
+        function playPause() {
+            var video = document.getElementById("video1");
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+        
+        function makeBig() {
+            document.getElementById("video1").style.width = "640px";
+        }
+        
+        function makeSmall() {
+            document.getElementById("video1").style.width = "320px";
+        }
+        
+        function makeNormal() {
+            document.getElementById("video1").style.width = "420px";
+        }
+    </script>
+</head>
+<body>
+    <h1>個人資料</h1>
+    <main>      
+        <form action="https://formspree.io/f/myzeyndv" method="POST">
+            <label for="name">姓名：</label>
+            <input type="text" id="name" name="name"><br><br>
+            
+            <label for="phone">電話：</label>
+            <input type="text" id="phone" name="phone"><br><br>
+            
+            <h2>參加約期務必注意安全以及配戴安全帽,穿著運動服裝適量的水</h2>
+            
+            <p>可參加行程日期：(可複選)</p>
+            <input type="checkbox" id="date1" name="dates" value="3/15">
+            <label for="date1">3/15</label><br>
+            <input type="checkbox" id="date2" name="dates" value="3/22">
+            <label for="date2">3/22</label><br>
+            <input type="checkbox" id="date3" name="dates" value="3/29">
+            <label for="date3">3/29</label><br><br>
+            
+            <p>喜歡的地點是：(單選)</p>
+            <input type="radio" id="place1" name="location" value="二寮">
+            <label for="place1">二寮</label><br>
+            <input type="radio" id="place2" name="location" value="鹿耳門聖母廟">
+            <label for="place2">鹿耳門聖母廟</label><br>
+            <input type="radio" id="place3" name="location" value="將軍">
+            <label for="place3">將軍</label><br>
+            <input type="radio" id="place4" name="location" value="七股鹽山">
+            <label for="place4">七股鹽山</label><br><br>
+            
+            <label for="suggestions">其它行程建議：</label><br>
+            <textarea id="suggestions" name="suggestions" rows="4" cols="50"></textarea><br><br>
+            
+            <input type="submit" value="提交">
+        </form>
+    </main>
+    
+    
+    <div style="text-align: center;">
+        <button onclick="playPause()">Play/Pause</button>
+        <button onclick="makeBig()">Big</button>
+        <button onclick="makeSmall()">Small</button>  
+        <button onclick="makeNormal()">Normal</button>
+        <br><br>
+        <video id="video1" width="420" controls>
+            <a href="videoplayback.mp4">影片連結</a>
+            Your browser does not support HTML video.
+        </video>
+    </div>
+</body>
+</html>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScrcyo5DXHfZrIKbMQJE5YA8a6IUTXKe0wPLrd7oBd6D9DDAA/viewform?usp=header" width="640" height="621" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+<br><form>
+
+
+            <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https://www.canva.com/design/DAGhlcN83eg/S-YA_DHo0rFsZav65kdqfg/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+鍾濰遠 設計的 <a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGhlcN83eg&#x2F;S-YA_DHo0rFsZav65kdqfg&#x2F;watch?utm_content=DAGhlcN83eg&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Purple and White Modern Geometric Animated Youtube Channel Intro Video</a>
+    </body>
+    </html>
+    
+    

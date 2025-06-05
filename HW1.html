@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>二維陣列範例</title>
+  <style>
+    table { border-collapse: collapse; }
+    td, th { border: 1px solid #333; padding: 8px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h2>二維陣列顯示</h2>
+  <div id="array-table"></div>
+  <script>
+    // 建立一個二維陣列
+    const arr = [
+      ['姓名', '國文', '英文', '數學'],
+      ['王大同', 85, 88, 77],
+      ['林麥可', 99, 86, 89],
+      ['張淑芬', 75, 92, 86]
+    ];
+
+    // 將二維陣列轉成 HTML 表格
+    let html = '<table>';
+    for (let i = 0; i < arr.length; i++) {
+      html += '<tr>';
+      for (let j = 0; j < arr[i].length; j++) {
+        html += `<td>${arr[i][j]}</td>`;
+      }
+      html += '</tr>';
+    }
+    html += '</table>';
+
+    // 顯示在網頁上
+    document.getElementById('array-table').innerHTML = html;
+  </script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>我的人生規劃以及夢想</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: #fff;
+      background: linear-gradient(135deg, #6323c9, #e2dae2);
+      overflow-x: hidden;
+    }
+
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: #fff;
+      font-size: 1em;
+      user-select: none;
+      pointer-events: none;
+      animation-name: fall;
+      animation-timing-function: linear;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+
+    .main-title {
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+      margin-top: 40px;
+      margin-bottom: 10px;
+      color: #a1eef3;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      animation: fadeInDown 1.2s ease-out forwards;
+      opacity: 0;
+    }
+
+    .nav {
+      text-align: center;
+      margin-bottom: 30px;
+      animation: fadeInDown 1.2s ease-out forwards;
+      opacity: 0;
+      animation-delay: 0.5s;
+    }
+
+    .nav a {
+      color: #fff;
+      margin: 0 15px;
+      font-size: 16px;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.15);
+      transition: background 0.3s ease;
+    }
+
+    .nav a:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 32px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card:nth-of-type(1) { animation-delay: 0.3s; }
+    .card:nth-of-type(2) { animation-delay: 0.6s; }
+    .card:nth-of-type(3) { animation-delay: 0.9s; }
+    .card:nth-of-type(4) { animation-delay: 1.2s; }
+
+    h2 {
+      font-size: 24px;
+      color: #ffe066;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    img:hover {
+      transform: scale(1.05);
+    }
+
+    .image-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .image-row img {
+      flex: 1 1 48%;
+      object-fit: cover;
+      height: 200px;
+      border-radius: 16px;
+      padding: 4px;
+      background-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .image-row img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .main-title {
+        font-size: 26px;
+      }
+
+      .nav a {
+        display: block;
+        margin: 10px auto;
+        width: fit-content;
+      }
+
+      .image-row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ❄️ 雪花動畫 -->
+  <script>
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.textContent = '❄';
+      snowflake.style.left = Math.random() * 100 + 'vw';
+      snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+      snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      document.body.appendChild(snowflake);
+      setTimeout(() => snowflake.remove(), 10000);
+    }
+    setInterval(createSnowflake, 200);
+  </script>
+
+  <!-- 📄 標題與導覽列 -->
+  <h1 class="main-title">我的人生規劃以及夢想</h1>
+
+  <div class="nav">
+    <a href="#dream">未來夢想</a>
+    <a href="#goal">短期目標</a>
+    <a href="#interest">興趣</a>
+    <a href="#problem">目前困擾</a>
+  </div>
+
+  <div class="container">
+    <div class="card" id="dream">
+      <h2>🥯⁰̷̴͈꒨⁰̷̴͈🥯我的未來夢想</h2>
+      <p>希望有朝一日我能在一間自行車店當技師<br>
+        不只是因為喜歡騎車，更是因為我想了解每一個零件的原理<br>
+        希望可以做我有興趣的工作,雖然不一定能實現但是我相信只要有想要嘗試的心<br>
+        都有成功的一天,即使我現在學的是資工.</p>
+      <img src="bb2aaa994dbc9cae10685dfe26910a49.jpg" alt="自行車技師">
+    </div>
+
+    <div class="card" id="goal">
+      <h2>˚ʚ｡･-･｡ɞ˚短期規劃目標</h2>
+      <p>目前我最大的目標是把課業學好，特別是技術與實作的科目<br>我想打好基礎，培養多元的閱讀習慣,嘗試了解不同的觀點和知識。<br>
+        2.保持對新事物的關注,不管是新的人事物科技,和這個世代可以有更好的關聯.<br>總之現在就是不斷學習就對了!!加油- ̗̀( ˶'ᵕ'˶)
+    </p>
+      <img src="b754c3fc8a745821b9a5590fda492d64.jpg" alt="學習與專注">
+    </div>
+
+    <div class="card" id="interest">
+      <h2> ﾐ・◦・ﾐ🎀我最有興趣的事</h2>
+      <p>1.絕對是——騎腳踏車！不管是練腿力、騎上坡，還是跟朋友一起風中奔馳<br>那種速度與自由感讓我我平常的壓力都消失!!,騎車是很好的運動,和家人一起和朋友<br>
+    </p>
+      <div class="image-row">
+        <img src="9d09872a-dfc0-4744-b172-408a5fd7e5f9.jpg" alt="騎自行車的快樂">
+        <img src="71e240f7-3755-4c70-8dc9-68b8030bb4fd.jpg" alt="公路上的腳踏車">
+      </div>
+    </div>
+
+    <div class="card" id="problem">
+      <h2>• ֊ •？目前的困擾</h2>
+      <p>其實我目前很焦慮,因為我還有些不習慣五專的這種生活作息,以及學習方式(未來升學.等)<br>希望之後可以習慣不然其實有點想轉學<br>還有就是我很困擾我的身高我現在只有166,希望可以長到170啊啊。</p>
+      <div class="image-row">
+        <img src="下載.jpg" alt="圖片">
+        
+    
+    
+    </div>
+  </div>
+</body>
+</html>

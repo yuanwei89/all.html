@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Text Effects</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .nav {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav a {
+            float: left;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .nav a:first-child {
+            background-color: #4CAF50;
+        }
+
+        .nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #e9e9e9;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            padding-top: 60px; /* 為導覽列留出空間 */
+        }
+
+        .title {
+            font-size: 72px;
+            font-weight: 900;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, 
+                #ff6b6b, #ffd93d, #6c5ce7, #a8e6cf,
+                #ff8b94, #ffd3b6, #00d2d3);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradient 10s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .text {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 20px;
+            padding: 10px;
+            letter-spacing: 2px;
+        }
+
+        .rainbow {
+            background: linear-gradient(to right, 
+                #ff0000, #ff7f00, #ffff00, #00ff00, 
+                #0000ff, #4b0082, #8b00ff);
+            padding: 15px 30px;
+            border-radius: 8px;
+            color: rgb(2, 0, 0);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .rainbow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .sunset {
+            background: linear-gradient(to right, #ff0000, #ff8c00, #ffd700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .neon {
+            background: linear-gradient(to bottom,
+                #ff0000 50%,  /* 上半部分是紅色 */
+                #ffff00 50%   /* 下半部分是黃色 */
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 900;
+        }
+
+        .cosmic {
+            background: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=500');
+            background-size: cover;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: cosmic-bg 20s linear infinite;
+        }
+
+        @keyframes cosmic-bg {
+            from {
+                background-position: 0% center;
+            }
+            to {
+                background-position: 200% center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="hw3.html">首頁</a>
+        <a href="練習二.html">空心文字</a>
+        <a href="background.html">背景文字</a>
+        <a href="">聯絡資訊</a>
+    </div>
+    <div class="title">使用background-clip製作文字背景效果</div>
+    <div class="text rainbow">HAVE A NICE DAY!</div>
+    <div class="text sunset">HAVE A NICE DAY!</div>
+    <div class="text neon">HAVE A NICE DAY!</div>
+    <div class="text cosmic">HAVE A NICE DAY!</div>
+</body>
+</html>
