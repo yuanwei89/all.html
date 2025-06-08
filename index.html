@@ -98,12 +98,16 @@
             background: rgba(255, 255, 255, 0.1);  /* 設定半透明白色背景 */
             padding: 20px;                 /* 設定內邊距為20px */
             border-radius: 5px;            /* 設定圓角為5px */
-            display: inline-block;         /* 設定為行內塊級元素 */
+            display: block;                /* 改為塊級元素 */
+            margin: 30px auto;             /* 上下邊距30px，左右自動居中 */
+            text-align: center;            /* 文字置中 */
+            max-width: 600px;              /* 設定最大寬度 */
         }
 
         .info p { 
             margin: 10px 0;                /* 設定上下外邊距為10px */
             font-size: 1.2em;              /* 設定字體大小為父元素的1.2倍 */
+            text-align: center;            /* 文字置中 */
         }
 
         /* 作品展示區塊樣式 */
