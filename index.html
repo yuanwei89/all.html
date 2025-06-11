@@ -102,12 +102,20 @@
             margin: 30px auto;             /* 上下邊距30px，左右自動居中 */
             text-align: center;            /* 文字置中 */
             max-width: 600px;              /* 設定最大寬度 */
+            
+            /* 毛玻璃效果設定 */
+            backdrop-filter: blur(10px);   /* 背景模糊效果，創造毛玻璃感 */
+            -webkit-backdrop-filter: blur(10px);  /* Safari瀏覽器支援 */
+            border: 1px solid rgba(255, 255, 255, 0.2);  /* 半透明白色邊框 */
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);  /* 添加陰影效果增強立體感 */
         }
 
         .info p { 
             margin: 10px 0;                /* 設定上下外邊距為10px */
             font-size: 1.2em;              /* 設定字體大小為父元素的1.2倍 */
             text-align: center;            /* 文字置中 */
+            color: rgb(193, 126, 224);                  
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);  /* 添加文字陰影增強可讀性 */
         }
 
         /* 作品展示區塊樣式 */
@@ -308,7 +316,7 @@
                 <p>作品截圖</p>
             </div>
             <div class="learning-item">
-                <p>學習過程雖然艱難但因為每次課堂都要交作業所以我還是會盡力做完!</p>
+                <p>學習過程雖然艱難但因為每次課堂都要交作業所以我還是會盡力做完!我終於了解網頁是這樣來的,而且每個網站都可以看他的程式碼,覺得很酷,原來開發人員的工作就是這個阿,但是他們要記這麼多程式碼哦?</p>
             </div>
         </div>
     </section>
